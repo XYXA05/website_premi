@@ -12,10 +12,14 @@ export async function fetchApartments() {
     const data = res.data
     console.log('fetchApartments → raw response data:', data)
 
-    // Detect HTML error page (ngrok landing) and alert
+    // Detect HTML error page (ngrok landing) and notify
     if (typeof data === 'string' && data.trim().startsWith('<')) {
       console.error('fetchApartments → received HTML instead of JSON. Please check your ngrok tunnel or API URL.')
-      throw new Error('Invalid API response: HTML received')
+      // Notify developer via alert, then fallback to empty list
+      if (typeof window !== 'undefined') {
+        window.alert('API error: received HTML. Ensure ngrok is tunneling your backend port (e.g., `ngrok http 8000`).')
+      }
+      return []
     }
 
     const payload = data
@@ -31,6 +35,9 @@ export async function fetchApartments() {
     return []
   } catch (err) {
     console.error('fetchApartments error:', err)
+    if (typeof window !== 'undefined') {
+      window.alert('Failed to fetch apartments: ' + err.message)
+    }
     return []
   }
 }
