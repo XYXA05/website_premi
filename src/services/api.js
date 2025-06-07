@@ -2,7 +2,7 @@
 import axios from 'axios'
 
 // Base URL from Vite env var or fallback
-const BASE_URL = import.meta.env.VITE_API_URL
+const BASE_URL = "https://218d-217-31-72-114.ngrok-free.app"
 const API = axios.create({ baseURL: BASE_URL })
 
 // Fetch apartments, handling possible nested array
