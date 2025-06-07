@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import { fetchApartmentById } from '../services/api';
 import ContactForm from '../components/ContactForm';
 
-const url = process.env.VITE_API_URL
+const url = import.meta.env.VITE_API_URL
 export default function ApartmentDetail() {
   const { id } = useParams();
   const [apt, setApt] = useState(null);

@@ -6,7 +6,7 @@ import {
   createStoreOrder,
 } from '../services/api'
 
-const BACKEND = process.env.VITE_API_URL
+const BACKEND = import.meta.env.VITE_API_URL
 
 export default function Store() {
   const [items, setItems]   = useState([])
