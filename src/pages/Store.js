@@ -6,7 +6,7 @@ import {
   createStoreOrder,
 } from '../services/api'
 
-const BACKEND = "https://218d-217-31-72-114.ngrok-free.app"
+const BACKEND = "https://f85d-217-31-72-114.ngrok-free.app"
 
 export default function Store() {
   const [items, setItems]   = useState([])
