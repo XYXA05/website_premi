@@ -6,23 +6,26 @@ const BASE_URL = "https://218d-217-31-72-114.ngrok-free.app"
 const API = axios.create({ baseURL: BASE_URL })
 
 // Fetch apartments, handling possible nested array
-export const fetchApartments = () =>
-  API.get('/get_orders_and_photo_all/')
-    .then(res => {
-      const payload = res.data
-      if (Array.isArray(payload)) {
-        return payload
-      }
-      if (Array.isArray(payload.apartments)) {
-        return payload.apartments
-      }
-      if (Array.isArray(payload.results)) {
-        return payload.results
-      }
-      // fallback: return empty array
-      return []
-    })
-
+export async function fetchApartments() {
+  try {
+    const res = await API.get('/get_orders_and_photo_all/')
+    console.log('fetchApartments → raw response data:', res.data)
+    const payload = res.data
+    if (Array.isArray(payload)) {
+      return payload
+    }
+    if (Array.isArray(payload.apartments)) {
+      return payload.apartments
+    }
+    if (Array.isArray(payload.results)) {
+      return payload.results
+    }
+    return []
+  } catch (err) {
+    console.error('fetchApartments error:', err)
+    return []
+  }
+}
 export const fetchApartmentById = id =>
   API.get(`/get_apartment_and_photo/${id}`).then(res => res.data)
 
