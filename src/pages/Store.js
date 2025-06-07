@@ -6,7 +6,7 @@ import {
   createStoreOrder,
 } from '../services/api'
 
-const BACKEND = 'http://127.0.0.1:8000'  // adjust if needed
+const BACKEND = process.env.VITE_API_URL
 
 export default function Store() {
   const [items, setItems]   = useState([])

@@ -1,6 +1,6 @@
 import axios from 'axios';
-
-const API = axios.create({ baseURL: 'http://localhost:8000' });
+const BASE_URL = process.env.VITE_API_URL
+const API = axios.create({ baseURL: BASE_URL })
 
 export const fetchApartments = () =>
   API.get('/get_orders_and_photo_all/').then(res => res.data);

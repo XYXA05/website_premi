@@ -2,7 +2,8 @@ import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { fetchApartmentById } from '../services/api';
 import ContactForm from '../components/ContactForm';
-const url='http://127.0.0.1:8000/'
+
+const url = process.env.VITE_API_URL
 export default function ApartmentDetail() {
   const { id } = useParams();
   const [apt, setApt] = useState(null);
