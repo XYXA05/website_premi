@@ -9,8 +9,16 @@ const API = axios.create({ baseURL: BASE_URL })
 export async function fetchApartments() {
   try {
     const res = await API.get('/get_orders_and_photo_all/')
-    console.log('fetchApartments → raw response data:', res.data)
-    const payload = res.data
+    const data = res.data
+    console.log('fetchApartments → raw response data:', data)
+
+    // Detect HTML error page (ngrok landing) and alert
+    if (typeof data === 'string' && data.trim().startsWith('<')) {
+      console.error('fetchApartments → received HTML instead of JSON. Please check your ngrok tunnel or API URL.')
+      throw new Error('Invalid API response: HTML received')
+    }
+
+    const payload = data
     if (Array.isArray(payload)) {
       return payload
     }
