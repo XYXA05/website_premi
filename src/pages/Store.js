@@ -6,7 +6,7 @@ import {
   createStoreOrder,
 } from '../services/api'
 
-const BACKEND = import.meta.env.VITE_API_URL
+const BACKEND = "https://218d-217-31-72-114.ngrok-free.app"
 
 export default function Store() {
   const [items, setItems]   = useState([])
