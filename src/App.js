@@ -1,25 +1,42 @@
-import logo from './logo.svg';
-import './App.css';
+// src/App.jsx
+import React from 'react';
+import { Routes, Route, Link } from 'react-router-dom';
+import Home from './pages/Home';
+import ApartmentDetail from './pages/ApartmentDetail';
+import Store from './pages/Store';
+import Cleaning from './pages/Cleaning';
+import Design from './pages/Design';
+import Renovation from './pages/Renovation';
 
-function App() {
+export default function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+    <>
+      <header className="header">
+        <div className="container flex items-center justify-between">
+          <Link to="/" className="logo">
+            Real Estate Listings
+          </Link>
+          <nav>
+            <Link to="/store" className="mx-2">Store</Link>
+            <Link to="/cleaning" className="mx-2">Cleaning</Link>
+            <Link to="/design" className="mx-2">Design</Link>
+            <Link to="/renovation" className="mx-2">Renovation</Link>
+          </nav>
+        </div>
       </header>
-    </div>
+
+      <main className="container">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/apartments/:id" element={<ApartmentDetail />} />
+  
+          {/* NEW PAGES */}
+          <Route path="/store" element={<Store />} />
+          <Route path="/cleaning" element={<Cleaning />} />
+          <Route path="/design" element={<Design />} />
+          <Route path="/renovation" element={<Renovation />} />
+        </Routes>
+      </main>
+    </>
   );
 }
-
-export default App;

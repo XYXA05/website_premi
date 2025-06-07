@@ -1,13 +1,120 @@
-body {
+/* src/index.css */
+/* reset */
+* {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+/* base typography */
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background-color: #f3f3f3;
+  color: #333;
+  line-height: 1.5;
+}
+
+/* container */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 16px;
+}
+
+/* header */
+.header {
+  background: #fff;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+.header .logo {
+  display: block;
+  padding: 16px;
+  font-size: 1.75rem;
+  font-weight: bold;
+  text-decoration: none;
+  color: #333;
+}
+
+/* grid layout for home */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 24px;
+}
+
+/* card */
+.card {
+  background: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  transition: box-shadow .2s;
+  text-decoration: none;
+  color: inherit;
+}
+.card:hover {
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+.card img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+}
+.card-content {
+  padding: 16px;
+}
+.card-content h2 {
+  font-size: 1.25rem;
+  margin-bottom: 8px;
+}
+.card-content p {
+  margin: 4px 0;
+}
+
+/* apartment detail images */
+.apartment-detail-img {
+  width: 20%;
+  max-height: 168px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 16px;
+}
+
+/* buttons */
+.btn-primary {
+  display: inline-block;
+  background-color: #007BFF;
+  color: #fff;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 4px;
+  text-decoration: none;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color .2s;
+}
+.btn-primary:hover {
+  background-color: #0056b3;
+}
+
+/* form */
+.form {
+  max-width: 500px;
+  margin-top: 24px;
+}
+.form-field {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+.form-field:focus {
+  outline: none;
+  border-color: #007BFF;
+}
+.form textarea.form-field {
+  min-height: 100px;
+  resize: vertical;
 }
