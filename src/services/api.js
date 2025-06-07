@@ -1,7 +1,7 @@
 import axios from 'axios';
 const BASE_URL = process.env.VITE_API_URL
 const API = axios.create({ baseURL: BASE_URL })
-
+console.log("API →", process.env.BASE_URL);
 export const fetchApartments = () =>
   API.get('/get_orders_and_photo_all/').then(res => res.data);
 
