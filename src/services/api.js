@@ -2,7 +2,7 @@
 import axios from 'axios'
 
 // Base URL from Vite env var or fallback
-const BASE_URL = "https://5f0c-217-31-72-114.ngrok-free.app"
+const BASE_URL = "https://79cf-217-31-72-114.ngrok-free.app"
 
 // Create an axios instance that skips ngrok browser warning
 export const API = axios.create({
