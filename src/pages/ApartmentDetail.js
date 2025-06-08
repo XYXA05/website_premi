@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import { fetchApartmentById } from '../services/api';
 import ContactForm from '../components/ContactForm';
 
-const url = "https://f85d-217-31-72-114.ngrok-free.app"
+const url = "https://5f0c-217-31-72-114.ngrok-free.app"
 export default function ApartmentDetail() {
   const { id } = useParams();
   const [apt, setApt] = useState(null);
